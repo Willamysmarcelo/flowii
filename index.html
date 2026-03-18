@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Flowii</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <h1 class="logo">flowii</h1>
+      <p class="subtitle">track your time, own your flow</p>
+    </header>
+
+    <!-- Timer -->
+    <section class="timer-card" id="timerCard">
+      <div class="timer-display" id="timerDisplay">00:00:00</div>
+      <div class="timer-task-name" id="timerTaskName">Toque em uma tarefa para iniciar</div>
+      <div class="timer-controls">
+        <button class="btn-timer btn-start" id="btnStart" disabled>
+          <span id="btnStartIcon">&#9654;</span>
+        </button>
+        <button class="btn-timer btn-stop" id="btnStop" disabled>&#9632;</button>
+        <button class="btn-timer btn-done" id="btnDone" disabled>&#10003;</button>
+      </div>
+      <div class="timer-labels">
+        <span>play/pause</span>
+        <span>parar</span>
+        <span>concluir</span>
+      </div>
+    </section>
+
+    <!-- Tabs -->
+    <nav class="tabs">
+      <button class="tab active" id="tabTasks">Tarefas</button>
+      <button class="tab" id="tabCompleted">Concluidas</button>
+    </nav>
+
+    <!-- Tasks Tab -->
+    <section class="tab-content active" id="tab-tasks">
+      <div class="add-task-form">
+        <input type="text" id="taskInput" placeholder="Nova tarefa..." class="input-task">
+        <input type="date" id="taskDate" class="input-date">
+        <button class="btn-add" id="btnAddTask">+</button>
+      </div>
+
+      <div class="task-list" id="taskList"></div>
+
+      <!-- Calendar below tasks -->
+      <div class="calendar-section">
+        <div class="calendar-header">
+          <button class="btn-nav" id="btnPrevMonth">&#8249;</button>
+          <h3 id="calendarTitle"></h3>
+          <button class="btn-nav" id="btnNextMonth">&#8250;</button>
+        </div>
+        <div class="calendar-grid">
+          <div class="cal-day-header">Dom</div>
+          <div class="cal-day-header">Seg</div>
+          <div class="cal-day-header">Ter</div>
+          <div class="cal-day-header">Qua</div>
+          <div class="cal-day-header">Qui</div>
+          <div class="cal-day-header">Sex</div>
+          <div class="cal-day-header">Sab</div>
+        </div>
+        <div class="calendar-days" id="calendarDays"></div>
+        <div class="calendar-detail" id="calendarDetail">
+          <p class="empty-state">Selecione um dia para ver as tarefas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Completed Tab -->
+    <section class="tab-content" id="tab-completed">
+      <div class="completed-header">
+        <h3>Tarefas Concluidas</h3>
+        <span class="completed-count" id="completedCount">0</span>
+      </div>
+      <div class="task-list" id="completedList"></div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
